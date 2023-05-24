@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <th>Поле</th>
+        <th>Было</th>
+        <th>Стало</th>
+    </tr>
+    {{#each newsDifference}}
+    <tr>
+        <td>{{this.itemName}}</td>
+        <td>{{this.old}}</td>
+        <td>{{this.new}}</td>
+    </tr>
+    {{/each}}
+    <tr>
+        <th>Ссылка на новость</th>
+        <td>
+            <a href='http://localhost:3000/news/{{id}}/detail'>
+                http://localhost:3000/news/{{id}}/detail
+            </a>
+        </td>
+    </tr>
+</table>

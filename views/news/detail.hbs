@@ -1,0 +1,19 @@
+{{#if news}}
+<nav aria-label="breadcrumb" mt-4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/news">Все новости</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{this.news.title}}</li>
+    </ol>
+</nav>
+<div class="card mt-4">
+    <div class="card-header bg-info-subtle">{{this.news.title}}</div>
+    <div class="card-body">
+        <h5 class="card-title">{{this.news.createdAt}}</h5>
+        <img src="{{this.news.cover}}" style="max-height: 200px;">
+        <p class="card-text">{{this.news.description}}</p>
+    </div>
+</div>
+
+<hr class="mt-4 mb-2">
+<div id="comments"></div>
+{{/if}}

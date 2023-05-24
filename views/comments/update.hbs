@@ -1,0 +1,11 @@
+{{#if comment}}
+<form id="updateCommentForm" class="row g-3 mt-3" data-commentid="{{this.comment.id}}" data-newsid="{{this.comment.news.id}}">
+    <div class="col-7">
+        <label for="inputTitle">Текст комментария</label>
+        <input type="text" name="text" value="{{this.comment.message}}" class="form-control" id="inputText" placeholder="Текст комментария">
+    </div>
+    <div class="col-7">
+        <button type="button" class="btn btn-primary mb-3" onclick="handleUpdateComment()">Обновить комментарий</button>
+    </div>
+</form>
+{{/if}}

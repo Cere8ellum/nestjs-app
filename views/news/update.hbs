@@ -1,0 +1,28 @@
+{{#if news}}
+<form id="updateNewsForm" class="row g-3 mt-3" enctype="multipart/form-data" data-newsid="{{this.news.id}}">
+    <div class="col-7">
+        <label for="inputTitle">Заголовок</label>
+        <input type="text" name="title" value="{{this.news.title}}" class="form-control" id="inputTitle" placeholder="Заголовок">
+    </div>
+    <div class="col-7">
+        <label for="inputDescription">Описание</label>
+        <input type="text" name="description" value="{{this.news.description}}" class="form-control" id="inputDescription" placeholder="Описание">
+    </div>
+    <div class="col-7">
+        <label for="inputAuthor">Автор</label>
+        <input type="text" name="author" value="{{this.news.user.nickname}}" class="form-control" id="inputAuthor" placeholder="Автор">
+    </div>
+    <div class="col-7">
+        <label for="inputCreatedAt">Дата новости</label>
+        <input type="date" name="createdAt" value="{{this.news.createdAt}}" class="form-control" id="inputCreatedAt">
+    </div>
+    <div class="col-7">
+        <label for="inputImage" class="form-label">Добавьте фото</label>
+        <input class="form-control" name="cover" type="file" id="inputImage">
+    </div>
+
+    <div class="col-7">
+        <button type="button" class="btn btn-primary mb-3" onclick="handleUpdateNews()">Обновить новость</button>
+    </div>
+</form>
+{{/if}}
