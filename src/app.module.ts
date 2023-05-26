@@ -14,15 +14,30 @@ import { ErrorsModule } from './modules/errors/errors.module';
 import { APP_FILTER } from '@nestjs/core';
 import { AllExceptionsFilter } from './filters/all-exceptions.filter';
 import { EventEmitterModule } from '@nestjs/event-emitter';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import dbConfig from './config/db.config';
 
 @Module({
   imports: [
+    // Config for ENV
+    // ConfigModule.forRoot({
+    //   envFilePath: `/src/config/env/${process.env.NODE_ENV}.env`,
+    //   isGlobal: true,
+    //   load: [dbConfig],
+    // }),
+    // TypeOrmModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   inject: [ConfigService],
+    //   useFactory: async (configService: ConfigService) => ({
+    //     ...(await configService.get('database')),
+    //   }),
+    // }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
       port: 8888,
       username: 'postgres',
-      password: 'Vosem88888888',
+      password: '123456789!',
       database: 'nest-news-blog',
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
@@ -42,6 +57,7 @@ import { EventEmitterModule } from '@nestjs/event-emitter';
   controllers: [AppController],
   providers: [
     AppService,
+    ConfigService,
     // Globally
     // {
     //   provide: APP_FILTER,

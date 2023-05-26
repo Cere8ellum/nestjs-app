@@ -1,4 +1,6 @@
-const URL = 'http://localhost:3000';
+const DEV_URL = 'http://localhost:3000';
+const PROD_URL = '1545749-cd47482.twc1.net';
+const URL = DEV_URL;
 
 async function handleSignin() {
   const formEl = document.querySelector('#signinForm');

@@ -1,5 +1,4 @@
 ('use strict');
-
 const e = React.createElement;
 
 function getCookie(name) {
@@ -18,7 +17,7 @@ class Comments extends React.Component {
     this.newsId = parseInt(window.location.href.split('/').reverse()[0]);
     const bearerToken = Cookies.get('authorization');
 
-    this.socket = io('http://localhost:3000', {
+    this.socket = io(URL, {
       query: {
         newsId: this.newsId,
       },
@@ -64,12 +63,9 @@ class Comments extends React.Component {
   }
 
   getAllComments = async () => {
-    const response = await fetch(
-      `http://localhost:3000/comments/${this.newsId}`,
-      {
-        method: 'GET',
-      },
-    );
+    const response = await fetch(`${URL}/comments/${this.newsId}`, {
+      method: 'GET',
+    });
 
     if (response.ok) {
       const comments = await response.json();
@@ -89,11 +85,11 @@ class Comments extends React.Component {
   };
 
   updateComment = (commentId) => {
-    location.href = `http://localhost:3000/comments/update/${commentId}`;
+    location.href = `${URL}/comments/update/${commentId}`;
   };
 
   removeComment = (commentId) => {
-    fetch(`http://localhost:3000/comments/${commentId}`, {
+    fetch(`${URL}/comments/${commentId}`, {
       method: 'DELETE',
     });
   };
