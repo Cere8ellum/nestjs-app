@@ -39,7 +39,7 @@ import dbConfig from './config/db.config';
       username: 'postgres',
       password: '123456789!',
       database: 'nest-news-blog',
-      entities: ['dist/**/*.entity{.ts,.js}'],
+      entities: [__dirname + '../**/*.entity{.ts,.js}'],
       synchronize: true,
       autoLoadEntities: true, // Solves Metadata error
     }),
