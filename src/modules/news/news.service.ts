@@ -20,7 +20,7 @@ export class NewsService {
     newsEntity.title = news.title;
     newsEntity.description = news.description;
     // Replace backslashes to forward
-    news.cover = 'http://localhost:3000/' + news.cover.replace(/\\/g, '/');
+    news.cover = news.cover.replace(/\\/g, '/');
     // remove /public from path
     news.cover = news.cover.replace('/public', '');
     newsEntity.cover = news.cover;
@@ -34,6 +34,11 @@ export class NewsService {
 
     try {
       if (editableNews) {
+        // Replace backslashes to forward
+        news.cover = news.cover.replace(/\\/g, '/');
+        // remove /public from path
+        news.cover = news.cover.replace('/public', '');
+
         const newsEntity = new NewsEntity();
         newsEntity.title = news.title || editableNews.title;
         newsEntity.description = news.description || editableNews.description;
