@@ -22,7 +22,7 @@ export class NewsService {
     // Replace backslashes to forward
     news.cover = news.cover.replace(/\\/g, '/');
     // remove /public from path
-    news.cover = news.cover.replace('/public', '');
+    news.cover = news.cover.replace('public', '');
     newsEntity.cover = news.cover;
     const _user = await this.usersService.findById(Number(userId));
     newsEntity.user = _user;
@@ -37,7 +37,7 @@ export class NewsService {
         // Replace backslashes to forward
         news.cover = news.cover.replace(/\\/g, '/');
         // remove /public from path
-        news.cover = news.cover.replace('/public', '');
+        news.cover = news.cover.replace('public', '');
 
         const newsEntity = new NewsEntity();
         newsEntity.title = news.title || editableNews.title;
