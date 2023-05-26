@@ -1,7 +1,3 @@
-const DEV_URL = 'http://localhost:3000';
-const PROD_URL = '1545749-cd47482.twc1.net';
-const URL = PROD_URL;
-
 async function handleSignin() {
   const formEl = document.querySelector('#signinForm');
   const formData = new FormData(formEl);
@@ -11,7 +7,7 @@ async function handleSignin() {
     body[pair[0]] = pair[1];
   }
 
-  return await fetch(URL + '/auth/signin', {
+  return await fetch('/auth/signin', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +16,7 @@ async function handleSignin() {
   })
     .then((res) => {
       if (res.ok) {
-        return (location.href = URL + '/users/profile');
+        return (location.href = '/users/profile');
       }
       return res.text().then((e) => {
         const json = JSON.parse(e);
@@ -33,7 +29,7 @@ async function handleSignin() {
 }
 
 async function handleSignout() {
-  return await fetch(URL + '/auth/signout', {
+  return await fetch('/auth/signout', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -67,7 +63,7 @@ async function handleSignup() {
     body[pair[0]] = pair[1];
   }
 
-  return await fetch(URL + '/users/create', {
+  return await fetch('/users/create', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -80,7 +76,7 @@ async function handleSignup() {
           'Успех',
           `Пользователь создан`,
           false,
-          () => (location.href = URL + '/users/signin'),
+          () => (location.href = '/users/signin'),
         );
       }
       return res.text().then((e) => {
@@ -102,7 +98,7 @@ async function handleUpdateUser() {
     body[pair[0]] = pair[1];
   }
 
-  return await fetch(URL + '/users/update', {
+  return await fetch('/users/update', {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -136,7 +132,7 @@ async function handleSubmitNews() {
   //   body[pair[0]] = pair[1];
   // }
 
-  return await fetch(URL + '/news/create', {
+  return await fetch('/news/create', {
     method: 'POST',
     // headers: {
     //   'Content-Type': 'multipart/form-data',

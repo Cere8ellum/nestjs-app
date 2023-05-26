@@ -1,4 +1,9 @@
 ('use strict');
+
+const DEV_URL = 'http://localhost:3000';
+const PROD_URL = 'http://1545749-cd47482.twc1.net';
+const URL = DEV_URL;
+
 const e = React.createElement;
 
 function getCookie(name) {
