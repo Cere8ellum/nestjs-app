@@ -41,6 +41,7 @@ import dbConfig from './config/db.config';
       database: 'nest-news-blog',
       entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: true,
+      autoLoadEntities: true, // Solves Metadata error
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),

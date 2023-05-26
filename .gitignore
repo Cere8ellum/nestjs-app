@@ -1,5 +1,3 @@
 node_modules
 dist
-public/news/
-public/users/
 package-lock.json
