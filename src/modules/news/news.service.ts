@@ -22,8 +22,7 @@ export class NewsService {
     // Replace backslashes to forward
     news.cover = news.cover.replace(/\\/g, '/');
     // remove /public from path
-    news.cover = news.cover.replace('public', '');
-    newsEntity.cover = news.cover;
+    newsEntity.cover = news.cover.replace('public', '');
     const _user = await this.usersService.findById(Number(userId));
     newsEntity.user = _user;
     return await this.newsRepository.save(newsEntity);
@@ -31,18 +30,17 @@ export class NewsService {
 
   async update(newsId: number, news: INews): Promise<NewsEntity | null> {
     const editableNews = await this.findById(newsId);
+    const newsEntity = new NewsEntity();
 
     try {
       if (editableNews) {
         // Replace backslashes to forward
         news.cover = news.cover.replace(/\\/g, '/');
         // remove /public from path
-        news.cover = news.cover.replace('public', '');
-
-        const newsEntity = new NewsEntity();
+        newsEntity.cover =
+          news.cover.replace('public', '') || editableNews.cover;
         newsEntity.title = news.title || editableNews.title;
         newsEntity.description = news.description || editableNews.description;
-        newsEntity.cover = news.cover || editableNews.cover;
 
         // If the entity already exist in the database, it is updated.
         // If the entity does not exist in the database, it is inserted.
