@@ -55,8 +55,8 @@ export class NewsService {
     }
   }
 
-  async getAll(): Promise<NewsEntity[]> {
-    return await this.newsRepository.find({});
+  getAll(): Promise<NewsEntity[]> {
+    return this.newsRepository.find({});
   }
 
   findById(id: INews['id']): Promise<NewsEntity> {
